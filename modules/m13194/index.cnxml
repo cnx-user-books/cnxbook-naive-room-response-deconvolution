@@ -1,0 +1,243 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:m="http://www.w3.org/1998/Math/MathML" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Naive Deconvolution Theory</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9221dfa5-8c5a-40ec-9508-2577d8b81e6e</md:uuid>
+</metadata>
+  <content>
+    <para id="delete_me">
+	<!-- Insert module text here -->
+       There are many characteristics of a room that determine the impulse response of
+a room.  The physical dimensions of the room and the wall surfaces are crucial
+in predicting how sound reacts.  Using basic properties of geometry, we can
+predict the paths that sound waves will travel on, even as they bounce off
+walls.  The walls themselves have certain reflection coefficients that describe
+the power of the reflected signal with respect to the signal in contact with
+the wall.  So it appears that with the dimensions of the room and the
+reflection coefficients of the walls in the room it is possible to generate an
+impulse response for that room.  Using a simple tape measure we recorded the
+height, width, and length of Duncan 1075 and a Will Rice dorm room, and used a
+MATLAB program called Room Impulse Response to find the approximate impulse
+response of these two rooms.  We decided to take two samples in each room, leaving us with four theoretical impulse responses.</para><para id="element-170">      <figure id="figure-2" orient="horizontal">
+        <subfigure id="idp10935024">
+          <title>Theoretical Impulse in Duncan - Left</title>
+          <media id="idp10842528" alt=""><image src="../../media/DuncanTheoryLeft.png" mime-type="image/png"/></media>
+
+        </subfigure>
+        <subfigure id="idp8625792">
+          <title>Theoretical Impulse in Duncan - Right</title>
+          <media id="idp10298496" alt=""><image src="../../media/DuncanTheoryRight.png" mime-type="image/png"/></media>
+        </subfigure>
+  </figure>
+	  </para><para id="element-928"><figure id="figure-1" orient="horizontal">  
+        <subfigure id="idp896080">
+          <title>Theoretical Impulse in Will Rice - Left</title>
+          <media id="idp1418528" alt=""><image src="../../media/WillRiceTheoryLeft.png" mime-type="image/png"/></media>
+
+        </subfigure>
+        <subfigure id="idp7835360">
+          <title>Theoretical Impulse in Will Rice - Right</title>
+          <media id="idp14449568" alt=""><image src="../../media/WillRiceTheoryRight.png" mime-type="image/png"/></media>
+        </subfigure>
+</figure></para><para id="element-663"> Clearly these will not be incredibly accurate, as they assume a completely
+rectangular, and empty, room.  Neither of these rooms were completely
+rectangular, and they were also not empty.  However, this gives us a good
+approximation of the impulse response.  The signals decay significantly as time increases, which is expected.  
+When we record the actual response
+using an approximate impulse, this data will help determine if we have an
+accurate measurement.
+</para><para id="element-315"> Once we have the impulse response of each room, we must find an appropriate
+signal to deconvolve.  We chose a piano tune, as a piece of music should have a
+more simple frequency response than speech.  After recording the impulse
+response and the input, we theoretically have enough data to reconstruct the
+signal using deconvolution.  The recorded output is the convolution of the input with the system.
+<m:math display="block">
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mi>y</m:mi>
+          <m:mo/>
+          <m:mfenced>
+            <m:mi>t</m:mi>
+          </m:mfenced>
+        </m:mrow>
+      </m:mrow>
+      <m:mrow>
+        <m:mo>=</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mrow>
+            <m:mi>x</m:mi>
+            <m:mo/>
+
+            <m:mfenced>
+              <m:mi>t</m:mi>
+            </m:mfenced>
+
+          </m:mrow>
+          <m:mo>*</m:mo>
+          <m:mrow>
+            <m:mi>h</m:mi>
+            <m:mo/>
+            <m:mfenced>
+              <m:mi>t</m:mi>
+            </m:mfenced>
+          </m:mrow>
+        </m:mrow>
+      </m:mrow>
+    </m:mrow>
+    <m:annotation-xml encoding="MathML-Content">
+      <m:apply>
+        <m:eq/>
+        <m:apply>
+          <m:ci type="fn">y</m:ci>
+          <m:ci>t</m:ci>
+        </m:apply>
+        <m:apply>
+          <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+          <m:apply>
+            <m:ci type="fn">x</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:ci type="fn">h</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+        </m:apply>
+      </m:apply>
+    </m:annotation-xml>
+  </m:semantics>
+</m:math>
+The recorded output has a frequency spectrum defined by 
+<m:math display="block">
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mi>Y</m:mi>
+          <m:mo/>
+          <m:mfenced>
+            <m:mi>jw</m:mi>
+          </m:mfenced>
+        </m:mrow>
+      </m:mrow>
+      <m:mrow>
+        <m:mo>=</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mrow>
+            <m:mi>X</m:mi>
+            <m:mo/>
+
+            <m:mfenced>
+              <m:mi>jw</m:mi>
+            </m:mfenced>
+
+          </m:mrow>
+          <m:mo/>
+          <m:mrow>
+            <m:mi>H</m:mi>
+            <m:mo/>
+            <m:mfenced>
+              <m:mi>jw</m:mi>
+            </m:mfenced>
+          </m:mrow>
+        </m:mrow>
+      </m:mrow>
+    </m:mrow>
+    <m:annotation-xml encoding="MathML-Content">
+      <m:apply>
+        <m:eq/>
+        <m:apply>
+          <m:ci type="fn">y</m:ci>
+          <m:ci>t</m:ci>
+        </m:apply>
+        <m:apply>
+          <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+          <m:apply>
+            <m:ci type="fn">x</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:ci type="fn">h</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+        </m:apply>
+      </m:apply>
+    </m:annotation-xml>
+  </m:semantics>
+</m:math>
+  Using simple algebra, we can solve for the input frequency coefficients:
+
+<m:math display="block">
+  <m:semantics>
+    <m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mi>X</m:mi>
+          <m:mo/>
+          <m:mfenced>
+            <m:mi>jw</m:mi>
+          </m:mfenced>
+        </m:mrow>
+      </m:mrow>
+      <m:mrow>
+        <m:mo>=</m:mo>
+      </m:mrow>
+      <m:mrow>
+        <m:mrow>
+          <m:mrow>
+            <m:mi>Y</m:mi>
+            <m:mo/>
+
+            <m:mfenced>
+              <m:mi>jw</m:mi>
+            </m:mfenced>
+
+          </m:mrow>
+          <m:mo/>
+
+        <m:mo>/</m:mo>
+          <m:mrow>
+            <m:mi>H</m:mi>
+            <m:mo/>
+            <m:mfenced>
+              <m:mi>jw</m:mi>
+            </m:mfenced>
+          </m:mrow>
+        </m:mrow>
+      </m:mrow>
+    </m:mrow>
+    <m:annotation-xml encoding="MathML-Content">
+      <m:apply>
+        <m:eq/>
+        <m:apply>
+          <m:ci type="fn">y</m:ci>
+          <m:ci>t</m:ci>
+        </m:apply>
+        <m:apply>
+          <m:csymbol definitionURL="http://cnx.rice.edu/cd/cnxmath.ocd#convolve"/>
+          <m:apply>
+            <m:ci type="fn">x</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+          <m:apply>
+            <m:ci type="fn">h</m:ci>
+            <m:ci>t</m:ci>
+          </m:apply>
+        </m:apply>
+      </m:apply>
+    </m:annotation-xml>
+  </m:semantics>
+</m:math>
+  
+
+We have H(jw), the impulse response, and
+Y(jw), the FFT of the recorded signal.  Thus we can find X(jw), the frequency
+spectrum of the input signal, and by taking the inverse FFT we are left
+with the input signal x(t).
+</para>   
+  </content>
+  
+</document>

@@ -1,0 +1,12 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Introduction to Naive Acoustic Deconvolution</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>b976244d-648d-4741-8270-93ce0c08263a</md:uuid>
+</metadata>
+  <content>
+    <para id="delete_me">
+	<!-- Insert module text here -->
+    	Every room responds differently to an input sound.  This fact is due to the reverberations of sound waves off surfaces in the room.  The exact response governed by the geometry and structure of that particular room.  Even for rooms with the same dimensions, different surfaces will cause the noise to reflect more or less loudly because different materials have different reflection coefficients.  A higher reflection coefficient means less energy is absorbed by the wall, and hence more of the sound is reflected off the wall.  This can easily cause problems when recording or playing music in an enclosed space.  The frequency characteristics of the room are important when sound quality is a concern; audio engineers spend significant amounts of time characterizing the acoustics of a room for the ideal placement of audio sources.   </para><para id="element-497"> The sound characteristics of the room can be roughly modeled as a linear time-invariant system.  Just like any system, the room has an impulse response which is possible to measure by playing an approximate sound impulse.  An impulse is played in the room and recorded using a standard microphone.  Since the enclosure can be modeled as an LTI system, the frequency response of the room is simply the FFT of this recording, provided there is no other noise interfering with the system.  
+	</para><para id="element-938"> Given the impulse response of the room, it is possible to predict the output of any signal into the room when given the input.  This prediction is possible by simply multiplying the frequency response of the system with the FFT of the output.  It is only natural to wonder if this process is reversible: Can we find the input to a room if we record the output?  This seemingly complicated process is very easy using deconvolution.  Because the model of the room is an LTI system we can take the inverse of the frequency response and multiply by the transformed output to get the frequency domain input. We can then apply the inverse transform to this result to recreate the input signal.</para>   
+  </content>
+  
+</document>

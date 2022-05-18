@@ -1,0 +1,52 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>The Effectiveness of Naive Audio Deconvolution in a Room</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>9f46839a-3009-4ac0-91de-c17258510401</md:uuid>
+</metadata>
+  <content>
+    <para id="delete_me"> After playing both the impulse responses and our input signal, and recording the output for two points in each room, we were anxious to deconvolve our recorded input and get a perfect replica of the input signal.  All of our signals were recorded in .wav format, which is lossless, so we didn't lose any important data due to audio compression.  The results of our deconvolution in .wav format are below.</para><para id="element-808"> 	
+	<media id="idp1945968" alt=""><audio src="Input.wav" mime-type="audio/x-wav"/></media>
+	<media id="idp3254208" alt=""><audio src="DeconvolvedDuncanInputResponseLeft.wav" mime-type="audio/x-wav"/></media>
+	<media id="idm6546416" alt=""><audio src="DeconvolvedDuncanInputResponseRight.wav" mime-type="audio/x-wav"/></media>
+	<media id="idm189744" alt=""><audio src="DeconvolvedWillRiceInputResponseLeft.wav" mime-type="audio/x-wav"/></media>
+	<media id="idm7596880" alt=""><audio src="DeconvolvedWillRiceInputResponseRight.wav" mime-type="audio/x-wav"/></media>
+</para><para id="element-589"> We were not able to receive a perfect input after deconvolution due to a number of reasons, which are discussed in our conclusion.  However, we can clearly tell that the signal exists in all of these recordings.  This would imply that our theory is correct to a degree, while our implementation must take into account some things we ignored.  The following are a selection of MATLAB plots describing the deconvolved signals.</para><para id="element-780"> <figure id="idm645600">
+
+
+        <subfigure id="idm7693584">
+          <title>Input - Time Spectrum</title>
+          <media id="idp894192" alt=""><image src="../../media/DLtimeinput.png" mime-type="image/png"/></media>
+        </subfigure>
+        <subfigure id="idp1965120">
+          <title>Input - Frequency Spectrum</title>
+          <media id="idp1514720" alt=""><image src="../../media/DLinputspec.png" mime-type="image/png"/></media>
+        </subfigure>
+</figure></para><para id="element-165"> <figure id="idm6822512">
+
+        <subfigure id="idm7001808">
+          <title>Deconvolved Result in Duncan - Time</title>
+          <media id="idp571456" alt=""><image src="../../media/DLtimeresult.png" mime-type="image/png"/></media>
+        </subfigure>
+        <subfigure id="idp2389888">
+          <title>Deconvolved Result in Duncan - Frequency</title>
+          <media id="idm7674992" alt=""><image src="../../media/DLresultspec.png" mime-type="image/png"/></media>
+        </subfigure>
+
+
+
+
+
+ </figure></para><para id="element-844"> <figure id="idp7504">        <subfigure id="idm658480">
+          <title>Deconvolved Result in Will Rice- Time</title>
+          <media id="idm7064560" alt=""><image src="../../media/WLtimeresult.png" mime-type="image/png"/></media>
+        </subfigure>
+        <subfigure id="idm8475280">
+          <title>Deconvolved Result in Will Rice - Frequency</title>
+          <media id="idm7406752" alt=""><image src="../../media/WLresultspec.png" mime-type="image/png"/></media>
+        </subfigure>
+
+ 
+
+ </figure></para><para id="element-621"> We will deal with the negatives before discussing the positives.  The large gap in the frequency spectrums are due to a filter in the frequency domain.  The recorded signal has very low signal strength in the middle frequencies.  In an attempt to remove noise from the deconvolved signal we removed these frequencies.  This is the cause of our lose in signal strength in the time domain.  The deconvolved results here are still overwhelmed by enough noise to blanket out the input.  However, the input exists in the signal, which is apparent when listening to the .wav files.  Where the deconvolved input frequency spectrum is not removed it resembles the frequency response of the input signal.  The audio data shows that while our results are far from ideal, we were able to deconvolve the recorded impulse and return the input signal.  </para>   
+  </content>
+  
+</document>

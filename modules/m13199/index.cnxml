@@ -1,0 +1,9 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Room Response Deconvolution M-Files</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>f6e65ad9-5297-4bed-b553-322d80daae71</md:uuid>
+</metadata>
+  <content>
+    <para id="delete_me"><link url="http://www.owlnet.rice.edu/~willhow/deconvolve.m">deconvolve.m</link> - This is the m-file that performs the deconvolution of the impulse response and recorded output.</para><para id="element-305"> <link url="http://www.owlnet.rice.edu/~willhow/impulse.m">impulse.m</link> - This m-file generates an approximate impulse that can be played.</para><para id="element-135"> <link url="http://www.owlnet.rice.edu/~willhow/sigcorrect.m">sigcorrect.m</link> - This m-file synchronizes the actual input and recorded input signals and makes them the same length.</para>   
+  </content>
+  
+</document>

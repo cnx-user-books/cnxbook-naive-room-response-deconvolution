@@ -1,0 +1,15 @@
+<document xmlns="http://cnx.rice.edu/cnxml" xmlns:md="http://cnx.rice.edu/mdml">
+  <title>Recording the Impulse Response of a Room</title>
+  <metadata><md:content-id>undefined</md:content-id><md:title/><md:uuid>80f6bd00-baaa-446f-b8e2-f8c20de237a0</md:uuid>
+</metadata>
+  <content>
+    <para id="delete_me">After obtaining the theoretical data we moved on to the measurements of the impulse response in both rooms and audio test trials.  The equipment that was used for the measurements was as follows: a laptop computer, a pre amplifier, amplifier, speaker, and omnidirectional microphones.  The microphones and source were placed in accordance with the locations we specified in the simulation software, given in rough estimate by the diagram.</para><para id="element-703"> <figure id="image_view">
+	<title>Recording Setup</title>
+	<media id="idp7150320" alt=""><image src="../../media/301a.jpg" mime-type="image/jpeg" height="650"/></media>
+</figure></para>
+<para id="element-656"> The use of the laptop was necessary to not only record the test impulse response but as the source of the impulse and test audio. To avoid the difficulty of making an impulse sound physically, using a “clapper,” we generated an impulse digitally on the laptop with MATLAB.  We used a piano tune as the input hoping to become slightly more cultured while working on our project.  In order to properly record a significant number of reflections, very loud impulses and inputs were played.  This most likely resulted in clipping, but was necessary to determine accurate responses.  </para><para id="element-257">
+	<media id="idm153856" alt=""><audio src="Impulse.wav" mime-type="audio/x-wav"/></media>
+	<media id="idp9679984" alt=""><audio src="Input.wav" mime-type="audio/x-wav"/></media></para><para id="element-526">  The impulse and input audio are used to perform the deconvolution experiment. The impulse and the input signal were played in each of the rooms and the room responses to both of these were recorded in .wav format.  We recorded both responses in two rooms, Duncan 1075 and a Will Rice College dorm room.  We chose Duncan 1075 because it was the ELEC 301 classroom this year, and a generic dorm room should help all of the audiophile students get the best sound quality possible.  We recorded two samples in each room, in case we found a null zone in one of the locations.  The results are displayed on the next page.</para>   
+  </content>
+  
+</document>
